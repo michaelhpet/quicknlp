@@ -1,6 +1,6 @@
-# QuickNLP (RPC server)
+# QuickNLP (REST API server)
 
-RPC server for QuickNLP, a natural language processing (NLP) service that takes plain text and transforms it into meaningful information in desired format using a range of NLP algoritms.
+REST API server for QuickNLP, a natural language processing service that takes plain text and transforms it into meaningful information in desired format using a range of NLP algoritms.
 
 ## System requirements
 
