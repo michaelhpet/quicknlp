@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Test cases for main.py."""
 import unittest
-import main
+from app import main
 from fastapi import FastAPI
 
 

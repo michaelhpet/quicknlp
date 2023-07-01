@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """Module for defining algorithms."""
-from algorithms.paraphrasing import Paraphrasing
-from algorithms.summarization import Summarization
-from algorithms.grammar_checking import GrammarChecking
+from app.algorithms.paraphrasing import Paraphrasing
+from app.algorithms.summarization import Summarization
+from app.algorithms.grammar_checking import GrammarChecking
 
 
 algorithms = [

@@ -1,10 +1,10 @@
 """Module for QuickNLP REST API server."""
 from fastapi import FastAPI
-from algorithms import algorithms
-from algorithms.summarization import Summarization
-from algorithms.paraphrasing import Paraphrasing
-from algorithms.grammar_checking import GrammarChecking
-from schemas import Body
+from app.algorithms import algorithms
+from app.algorithms.summarization import Summarization
+from app.algorithms.paraphrasing import Paraphrasing
+from app.algorithms.grammar_checking import GrammarChecking
+from app.schemas import Body
 
 
 app = FastAPI()
@@ -46,7 +46,7 @@ def describe_paraphrasing():
 @app.post("/paraphrasing")
 def paraphrasing(body: Body):
     """Post a corpus for paraphrasing algorithm."""
-    paraphrase = Paraphrasing(body.corpus)
+    paraphrase = Paraphrasing(body.corpus, **body.options.__dict__)
     return {
         "status": "success",
         "data": paraphrase.__dict__

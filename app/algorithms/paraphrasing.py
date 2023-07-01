@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Model class for paraphrasing algorithm."""
-from algorithms.base import Base
+from app.algorithms.base import Base
 
 
 class Paraphrasing(Base):
@@ -11,11 +11,11 @@ class Paraphrasing(Base):
         paraphrasing algorithm
     """
 
-    def __init__(self, corpus, **kwargs):
+    def __init__(self, corpus, **options):
         """Initialize a paraphrasing object."""
         super().__init__(corpus)
-        for key in kwargs:
-            setattr(self, key, kwargs[key])
+        for key in options:
+            setattr(self, key, options[key])
 
     @classmethod
     def describe(cls):
