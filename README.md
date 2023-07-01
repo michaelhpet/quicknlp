@@ -1,6 +1,6 @@
-# QuickNLP (REST API server)
+# QuickNLP (API server)
 
-REST API server for QuickNLP, a natural language processing service that takes plain text and transforms it into meaningful information in desired format using a range of NLP algoritms.
+API server for QuickNLP, a natural language processing service that takes plain text and transforms it into meaningful information in desired format using a range of NLP algoritms.
 
 ## System requirements
 
