@@ -11,10 +11,11 @@ app = FastAPI()
 
 @app.get("/")
 async def root_get():
-    """GET hello world."""
+    """GET /."""
     return {
         "status": "success",
-        "message": "Hello World"
+        "message": "Welcome to QuickNLP!",
+        "data": None
     }
 
 
