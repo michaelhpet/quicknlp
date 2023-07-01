@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Model class for grammar checking algorithm."""
-from models.base import Base
+from algorithms.base import Base
 
 
 class GrammarChecking(Base):
@@ -27,9 +27,8 @@ class GrammarChecking(Base):
         """
         return {
             "name": "Grammar checking",
-            "description": "Paraphrase generation is the task of generating "
-            "an output sentence that preserves the meaning of the input "
-            "sentence with variations in word choice and grammar. Two "
-            "sentences are paraphrases if their meanings are equivalent "
-            "but their words and syntax are different."
+            "description": "Grammar checking is one of the most widely used "
+            "tools within natural language processing (NLP) applications. "
+            "Grammar checkers check the grammatical structure of sentences "
+            "based on morphological processing and syntactic processing."
         }

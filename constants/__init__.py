@@ -1,2 +1,0 @@
-"""Constants."""
-algorithms = ["Paraphrasing", "Summarization"]

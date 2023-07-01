@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Model class for paraphrasing algorithm."""
-from models.base import Base
+from algorithms.base import Base
 
 
 class Paraphrasing(Base):
