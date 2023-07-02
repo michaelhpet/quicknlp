@@ -1,12 +1,21 @@
 #!/usr/bin/env python
 """Schema definitions for request body."""
 from pydantic import BaseModel
+from enum import Enum
+
+
+class Formats(Enum):
+    """Enumerate accepted output formats."""
+
+    text = 1
+    pdf = 2
 
 
 class Options(BaseModel):
     """Define options for an algorithm."""
 
-    format: str | None = None
+    # format: Formats | None = Formats.text
+    sentences: int = 2
 
 
 class Body(BaseModel):
@@ -21,7 +30,11 @@ class Body(BaseModel):
         schema_extra = {
             "examples": [
                 {
-                    "corpus": "Hello World"
+                    "corpus": "Hello World",
+                    "options": {
+                        "format": "text",
+                        "sentences": 5
+                    }
                 }
             ]
         }

@@ -46,7 +46,7 @@ def describe_paraphrasing():
 @app.post("/paraphrasing")
 def paraphrasing(body: Body):
     """Post a corpus for paraphrasing algorithm."""
-    paraphrase = Paraphrasing(body.corpus, **body.options.__dict__)
+    paraphrase = Paraphrasing(body.corpus, **(body.options.__dict__ or {}))
     return {
         "status": "success",
         "data": paraphrase.__dict__
@@ -65,10 +65,12 @@ def describe_summarization():
 @app.post("/summarization")
 def summarization(body: Body):
     """Post a corpus for summarization algorithm."""
-    summary = Summarization(body.corpus)
+    summarizer = Summarization(body.corpus, **body.options.__dict__)
+    summary = summarizer.summarize()
+    print("options are: ", body.options)
     return {
         "status": "success",
-        "data": summary.__dict__
+        "data": summary
     }
 
 
@@ -84,7 +86,7 @@ def describe_grammar_checking():
 @app.post("/grammar-checking")
 def grammar_checking(body: Body):
     """Post a corpus for grammar checking algorithm."""
-    grammar_check = GrammarChecking(body.corpus)
+    grammar_check = GrammarChecking(body.corpus, **body.options.__dict__)
     return {
         "status": "success",
         "data": grammar_check.__dict__

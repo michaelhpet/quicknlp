@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 """Model class for summarization algorithm."""
+import spacy
+import pytextrank
 from app.algorithms.base import Base
 
 
@@ -14,8 +16,10 @@ class Summarization(Base):
     def __init__(self, corpus, **options):
         """Initialize a summarization object."""
         super().__init__(corpus)
-        for key in options:
-            setattr(self, key, options[key])
+        self.summary = ""
+        if options:
+            for key in options:
+                setattr(self, key, options[key])
 
     @classmethod
     def describe(cls):
@@ -33,3 +37,15 @@ class Summarization(Base):
             "from raw text data and use it for a summarization model, overall "
             "they can be categorized as Extractive and Abstractive."
         }
+
+    def summarize(self):
+        """Summarize the corpus of a Summarization instance."""
+        nlp = spacy.load("en_core_web_sm")
+        nlp.add_pipe("textrank")
+        doc = nlp(self.corpus)
+        print("sentences are: ", self.sentences)
+        summaries = list(doc._.textrank.summary(
+            limit_sentences=self.sentences
+        ))
+        self.summary = " ".join(list(map(lambda x: str(x), summaries)))
+        return self.summary
