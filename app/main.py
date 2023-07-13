@@ -12,12 +12,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    """# Quick NLP.
-
-    QuickNLP is a natural language processing service that takes
-    plain text and transforms it into meaningful information in
-    desired format using a range of NLP algoritms.
-    """
+    """Welcome to Quick NLP."""
     return {
         "status": "success",
         "message": "Welcome to QuickNLP!",
