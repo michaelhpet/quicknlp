@@ -62,7 +62,6 @@ def summarization(body: Body):
     """Post a corpus for summarization algorithm."""
     summarizer = Summarization(body.corpus, **body.options.__dict__)
     summary = summarizer.summarize()
-    print("options are: ", body.options)
     return {
         "status": "success",
         "data": summary
