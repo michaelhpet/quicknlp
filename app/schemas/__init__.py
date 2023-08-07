@@ -7,14 +7,14 @@ from enum import Enum
 class Formats(Enum):
     """Enumerate accepted output formats."""
 
-    text = 1
-    pdf = 2
+    text = "text"
+    pdf = "pdf"
 
 
 class Options(BaseModel):
     """Define options for an algorithm."""
 
-    # format: Formats | None = Formats.text
+    format: Formats | None = Formats.text
     sentences: int = 2
 
 

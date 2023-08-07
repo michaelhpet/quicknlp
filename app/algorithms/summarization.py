@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 """Model class for summarization algorithm."""
-import spacy
-import pytextrank
 from app.algorithms.base import Base
 
 
@@ -40,12 +38,4 @@ class Summarization(Base):
 
     def summarize(self):
         """Summarize the corpus of a Summarization instance."""
-        nlp = spacy.load("en_core_web_sm")
-        nlp.add_pipe("textrank")
-        doc = nlp(self.corpus)
-        print("sentences are: ", self.sentences)
-        summaries = list(doc._.textrank.summary(
-            limit_sentences=self.sentences
-        ))
-        self.summary = " ".join(list(map(lambda x: str(x), summaries)))
-        return self.summary
+        return None
